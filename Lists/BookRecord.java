@@ -1,5 +1,4 @@
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class BookRecord <Book> {  // parameterised for type safety
@@ -20,6 +19,7 @@ public class BookRecord <Book> {  // parameterised for type safety
     }
     // Helper method for resizing the inner array
     public void resize(){
+        count ++ ;  // keep track of the number of times the list has been resized
        if(init_capacity==size){
           int new_capacity=init_capacity *2;  
           Book[] new_inner_arr=(Book[]) new Object[new_capacity];
@@ -63,7 +63,7 @@ public class BookRecord <Book> {  // parameterised for type safety
     }
     //Remove and element
     public void remove(int index){
-        if(index > 0 || index <inner_array.length){
+        if(index < 0 || index >inner_array.length){
             throw new RuntimeException("Index out of bounds");
         }
         // does the element exist
@@ -87,7 +87,7 @@ public class BookRecord <Book> {  // parameterised for type safety
     
     // get an element at a given index
     public Book getBook(int index){
-        if(index > 0 || index <inner_array.length){
+        if(index < 0 || index >inner_array.length){
             throw new RuntimeException("Index out of bounds");
         }
         if(inner_array[index]==null){

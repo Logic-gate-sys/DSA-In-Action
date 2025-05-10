@@ -12,22 +12,17 @@ public class RecordManager {
     4. Insert a book
     5. Exit         
             """;
-    Scanner sc=new Scanner(System.in);
-    System.out.println(msg);
-    int user_choice=sc.nextInt();
-    sc.next();
-    boolean execute=true;
-    while(execute){
-    // into the loop with switch
-        switch (user_choice) {
-            case 1:
-                
-            
-                break;
-            default:
-                throw new AssertionError();
-    }
-    }
+   Book b1=new Book("0204","Good things take time","Daniel Kwasi",Status.AVAILABLE);
+   Book b2=new Book("4004","I have shown you","Daniel Kwasi",Status.UNAVAILABLE);
+   Book b3=new Book("0204","I have disgrace myself","Daniel kk",Status.BORROWED);
+
+   BookRecord<Book> nb=new BookRecord<>();
+   nb.add(b1);
+   nb.insert(1, b2);
+   nb.add(b3);
+   nb.display();
+   Book bk=nb.getBook(1);
+   System.out.println("Returned book: "+bk);
 
     }
     
